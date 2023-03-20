@@ -10,7 +10,7 @@ const initialState = {
 export const getCoins = createAsyncThunk("coins/getCoins", async () => {
   try {
     const response = await HTTP.get(
-      `${process.env.REACT_APP_BASE_URL}coins?skip=0&currency=MX`
+      `${process.env.REACT_APP_BASE_URL}coins?skip=0&currency=MXN`
     );
     return response.data.coins;
   } catch (e) {
