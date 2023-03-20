@@ -1,0 +1,23 @@
+.toggle--button{
+    border: 0;
+    color: white;
+    padding: 0.4rem;
+    background-color: rgba(68,51,224, 0.4);
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover{
+        background-color: rgba(68,51,224, 0.6);
+    }
+    &:active{
+        border: 0;
+    }
+}
+
+.toggle--button-active{
+    background-color: rgba(68,51,224, 0.8);
+}

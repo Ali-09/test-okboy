@@ -1,0 +1,23 @@
+@import "../../../index.scss";
+
+.wrapper{
+    padding: 0 6rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include media(sm) {
+        padding: 0.4rem !important;
+    }
+
+    @include media(md) {
+        padding: 0 2rem;
+    }
+
+    main{
+        position: relative;
+        overflow-x: auto;
+        width: 100%;
+        padding-top: 2rem;
+    }
+}

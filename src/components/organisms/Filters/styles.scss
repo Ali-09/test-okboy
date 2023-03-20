@@ -1,0 +1,13 @@
+@import "../../../index.scss";
+
+.filters{
+    display: flex;
+    margin-bottom: 0.6rem;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media(sm) {
+        gap: 0.4rem;
+        flex-direction: column;
+    }
+}

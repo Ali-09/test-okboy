@@ -1,0 +1,12 @@
+input{
+    background: #fff;
+    padding: 0 1rem;
+    border-radius: 14px;
+    border: 2px solid rgb(30, 30, 30);
+    min-height: 2rem;
+    
+    &:focus-visible{
+        outline: 0px;
+    }
+
+}
