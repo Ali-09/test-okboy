@@ -22,14 +22,15 @@ export const coinsSlice = createSlice({
   name: "coins",
   initialState,
   reducers: {},
-  extraReducers: {
-    [getCoins.pending]: (state) => {
-      state.status = "loading";
-    },
-    [getCoins.fulfilled]: (state, { payload }) => {
-      state.data = payload;
-      state.status = "success";
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCoins.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getCoins.fulfilled, (state, { payload }) => {
+        state.data = payload;
+        state.status = "success";
+      })
   },
 });
 
