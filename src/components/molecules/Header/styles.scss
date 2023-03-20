@@ -1,0 +1,23 @@
+@import "../../../index.scss";
+
+header{
+    position: relative;
+
+    .header{
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 0;
+        justify-content: space-between;
+        align-content: center;
+        
+        @include media(sm) {
+            flex-direction: column;
+        }
+        
+        h1{  
+            margin: 0 !important;
+            color: #4433E0;
+            text-transform: uppercase;
+        }
+    }
+}

@@ -1,6 +1,8 @@
+import { HomeTemplate } from 'components'
+
 const Home = () => {
   return (
-    <h1>Test okboy</h1>
+    <HomeTemplate/>
   )
 }
 
