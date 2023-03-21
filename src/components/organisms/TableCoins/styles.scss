@@ -3,6 +3,14 @@
   border-color: black;
   border-width: 0 1px 1px 1px;
   border-style: solid;
+  border: 1px solid rgb(43, 43, 43);
+  overflow-x: auto;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   
   table {
     color: white;
@@ -18,13 +26,12 @@
         padding: 5px 10px;
         vertical-align: bottom;
         text-transform: uppercase;
-      }
-
-      th:first-child {
-        border-top-left-radius: 5px;
-      }
-      th:last-child {
-        border-top-right-radius: 5px;
+        &:first-child {
+          border-top-left-radius: 5px;
+        }
+        &:last-child {
+          border-top-right-radius: 5px;
+        }
       }
     }
 
@@ -34,6 +41,14 @@
         padding: 5px 10px;
         vertical-align: top;
         font-weight: 300;
+
+        button{
+          height: auto;
+          display: flex;
+          background: transparent;
+          border: 0;
+          padding: 0;
+        }
 
         .table--coin-item {
           display: flex;

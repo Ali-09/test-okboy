@@ -5,6 +5,7 @@ const initialState = {
   data: [],
   error: "",
   status: "idle",
+  favorites: []
 };
 
 export const getCoins = createAsyncThunk("coins/getCoins", async () => {
@@ -21,7 +22,25 @@ export const getCoins = createAsyncThunk("coins/getCoins", async () => {
 export const coinsSlice = createSlice({
   name: "coins",
   initialState,
-  reducers: {},
+  reducers: {
+    setFavorites: (state, { payload } ) => {
+      const favorites = localStorage.getItem("favorites_coins");
+      let stateCoins = favorites.split(",")
+      if(stateCoins.some(coin => coin === payload)){
+        stateCoins = stateCoins.filter(coin => coin !== payload)
+      }else{
+        stateCoins = [...stateCoins, payload]
+      }
+      localStorage.setItem("favorites_coins", stateCoins.filter((coin) => coin !== "").toString())
+      state.favorites = stateCoins.filter((coin) => coin !== "")
+    },
+    getFavorites: (state) => {
+      if(localStorage.hasOwnProperty("favorites_coins")){
+          const favorites = localStorage.getItem("favorites_coins");
+          state.favorites = favorites.split(",")
+      }
+  },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCoins.pending, (state) => {
@@ -34,4 +53,5 @@ export const coinsSlice = createSlice({
   },
 });
 
+export const { setFavorites, getFavorites } = coinsSlice.actions;
 export default coinsSlice.reducer;

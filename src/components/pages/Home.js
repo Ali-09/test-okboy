@@ -1,13 +1,14 @@
 import { HomeTemplate } from 'components';
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCoins } from 'state/slices/coins-slice';
+import { getCoins, setFavorites, getFavorites } from 'state/slices/coins-slice';
 import useInterval from 'hooks/useInterval';
 
 const Home = () => {
 
   const dispatch = useDispatch();
   const dataCoins = useSelector(state => state.coins.data);
+  const favorites = useSelector(state => state.coins.favorites);
   const [search, setSearch] = useState('');
   const [toggleActive, setToggleActive] = useState('');
   const toggleButtons = [
@@ -18,6 +19,10 @@ const Home = () => {
     {
       label: 'Precio',
       value: 'price'
+    },
+    {
+      label: 'Favoritos',
+      value: 'favorites'
     }
   ]
 
@@ -30,9 +35,12 @@ const Home = () => {
       if(toggleActive === 'name'){
         data = data.sort((a, b) => (a.name > b.name ? 1 : -1));
       }
+      if(toggleActive === 'favorites'){
+        data = data.sort((a, b) => favorites.includes(b.id) - favorites.includes(a.id));
+      }
       return data
     },
-    [dataCoins, search, toggleActive]
+    [dataCoins, search, toggleActive, favorites]
   )
   
 
@@ -40,7 +48,12 @@ const Home = () => {
   
   useEffect(() => {
     dispatch(getCoins())
+    dispatch(getFavorites())
   }, [dispatch]);
+
+  const handleFavorites = (id) => {
+    dispatch(setFavorites(id))
+  };
 
   return (
     <HomeTemplate 
@@ -50,6 +63,8 @@ const Home = () => {
       toggleActive={toggleActive}
       setToggleActive={setToggleActive}
       toggleButtons={toggleButtons}
+      handleFavorites={handleFavorites}
+      favorites={favorites}
     />
   )
 }

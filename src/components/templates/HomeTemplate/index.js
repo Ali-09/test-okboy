@@ -8,7 +8,9 @@ const HomeTemplate = ({
   search, 
   toggleActive, 
   setToggleActive,
-  toggleButtons
+  toggleButtons,
+  handleFavorites,
+  favorites
 }) => {
   
   return (
@@ -22,7 +24,11 @@ const HomeTemplate = ({
           setToggleActive={setToggleActive}
           toggleButtons={toggleButtons}
         />
-        <TableCoins coins={coins}/>
+        <TableCoins 
+          coins={coins}  
+          handleFavorites={handleFavorites}
+          favorites={favorites}
+        />
       </main>
     </div>
   )
@@ -35,6 +41,8 @@ HomeTemplate.propTypes = {
   toggleActive: PropTypes.string.isRequired,
   setToggleActive: PropTypes.func.isRequired,
   toggleButtons: PropTypes.array.isRequired,
+  handleFavorites: PropTypes.func.isRequired,
+  favorites: PropTypes.array.isRequired
 }
 
 export default HomeTemplate
