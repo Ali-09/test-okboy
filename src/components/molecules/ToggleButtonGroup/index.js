@@ -1,10 +1,10 @@
-import './styles.scss'
-import { ToggleButton } from 'components'
-import PropTypes from "prop-types";
+import './styles.scss';
+import { ToggleButton } from 'components';
+import PropTypes from 'prop-types';
 
-const ToggleButtonGroup = ({toggleButtons, setToggleActive, toggleActive}) => {
+function ToggleButtonGroup({ toggleButtons, setToggleActive, toggleActive }) {
   const onToggle = (val) => {
-    const value = val === toggleActive ? "" : val;
+    const value = val === toggleActive ? '' : val;
     setToggleActive(value);
   };
   return (
@@ -20,12 +20,12 @@ const ToggleButtonGroup = ({toggleButtons, setToggleActive, toggleActive}) => {
       ))}
     </div>
   );
-};
+}
 
 ToggleButtonGroup.propTypes = {
   toggleButtons: PropTypes.array.isRequired,
   setToggleActive: PropTypes.func.isRequired,
-  toggleActive: PropTypes.string.isRequired
+  toggleActive: PropTypes.string.isRequired,
 };
 
 export default ToggleButtonGroup;

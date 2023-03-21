@@ -1,11 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
-import coinsReducer from 'state/slices/coins-slice'
+import { configureStore } from '@reduxjs/toolkit';
+import coinsReducer from 'state/slices/coins-slice';
 
-export const store = configureStore({
+export default configureStore({
   reducer: {
-    coins: coinsReducer
+    coins: coinsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
-  })
-})
+  }),
+});
