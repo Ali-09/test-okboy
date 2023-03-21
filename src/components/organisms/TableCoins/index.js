@@ -1,6 +1,7 @@
 import "./styles.scss";
 import PropTypes from "prop-types";
 import FavoriteIcon from "assets/icons/FavoriteIcon";
+import { Image } from "components"
 
 const TableCoins = ({ coins, handleFavorites, favorites }) => {
   return (
@@ -22,7 +23,7 @@ const TableCoins = ({ coins, handleFavorites, favorites }) => {
               <td align="center">{coin.rank}</td>
               <td align="left">
                 <div className="table--coin-item">
-                  <img src={coin.icon} alt={coin.name} />
+                  <Image src={coin.icon} alt={coin.name} />
                   <p>{coin.name}</p>
                 </div>
               </td>
