@@ -1,5 +1,6 @@
 // Atoms
 export { default as Input } from 'components/atoms/Input';
+export { default as Image } from 'components/atoms/Image';
 export { default as ToggleButton } from 'components/atoms/ToggleButton';
 // Molecules
 export { default as Header } from 'components/molecules/Header';
