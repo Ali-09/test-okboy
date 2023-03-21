@@ -1,9 +1,9 @@
-import "./styles.scss";
-import PropTypes from "prop-types";
-import FavoriteIcon from "assets/icons/FavoriteIcon";
-import { Image } from "components"
+import './styles.scss';
+import PropTypes from 'prop-types';
+import FavoriteIcon from 'assets/icons/FavoriteIcon';
+import { Image } from 'components';
 
-const TableCoins = ({ coins, handleFavorites, favorites }) => {
+function TableCoins({ coins, handleFavorites, favorites }) {
   return (
     <div className="wrapper-table">
       <table>
@@ -27,11 +27,15 @@ const TableCoins = ({ coins, handleFavorites, favorites }) => {
                   <p>{coin.name}</p>
                 </div>
               </td>
-              <td align="center">{coin.price.toFixed(2)} MX</td>
+              <td align="center">
+                {coin.price.toFixed(2)}
+                {' '}
+                MX
+              </td>
               <td align="center">{coin.priceBtc}</td>
               <td align="center">{coin.priceChange1d}</td>
               <td align="center">
-                <button onClick={() => handleFavorites(coin.id)}>
+                <button type="button" onClick={() => handleFavorites(coin.id)}>
                   <FavoriteIcon
                     fill={favorites.includes(coin.id) ? '#E90064' : ''}
                     stroke={!favorites.includes(coin.id) ? '#E90064' : ''}
@@ -44,7 +48,7 @@ const TableCoins = ({ coins, handleFavorites, favorites }) => {
       </table>
     </div>
   );
-};
+}
 
 TableCoins.propTypes = {
   coins: PropTypes.array.isRequired,

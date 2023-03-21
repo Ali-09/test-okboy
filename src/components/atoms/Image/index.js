@@ -1,22 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import CoinImage from "assets/images/coin.png"
+import React from 'react';
+import PropTypes from 'prop-types';
+import CoinImage from 'assets/images/coin.png';
 
-const Image = ({alt, src}) => {
+function Image({ alt, src }) {
   return (
-    <img 
-        src={src} 
-        alt={alt} 
-        onError={({ currentTarget }) => {
-            currentTarget.onerror = null;
-            currentTarget.src=CoinImage;
-      }}/>
-  )
+    <img
+      src={src}
+      alt={alt}
+      onError={({ currentTarget }) => {
+        currentTarget.onerror = null;
+        currentTarget.src = CoinImage;
+      }}
+    />
+  );
 }
 
 Image.propTypes = {
-    alt: PropTypes.string,
-    src: PropTypes.string
-}
+  alt: PropTypes.string,
+  src: PropTypes.string.isRequired,
+};
 
-export default Image
+Image.defaultProps = {
+  alt: 'image',
+};
+
+export default Image;

@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+		"node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "requireConfigFile": false,
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
+        }
+    },
+    "rules": {
+        "import/no-extraneous-dependencies": [0, {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false, "packageDir": "./"}],
+        "react/forbid-prop-types": [0, {"checkContextTypes": false, "checkChildContextTypes": false}],
+        "react/jsx-props-no-spreading": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "import/no-cycle": "off",
+        "no-param-reassign": ["error", { "props": false }],
+        "linebreak-style": 0
+    }
+}

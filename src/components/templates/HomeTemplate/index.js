@@ -1,37 +1,36 @@
-import "./styles.scss";
+import './styles.scss';
 import { Header, TableCoins, Filters } from 'components';
 import PropTypes from 'prop-types';
 
-const HomeTemplate = ({
-  coins, 
-  setSearch, 
-  search, 
-  toggleActive, 
+function HomeTemplate({
+  coins,
+  setSearch,
+  search,
+  toggleActive,
   setToggleActive,
   toggleButtons,
   handleFavorites,
-  favorites
-}) => {
-  
+  favorites,
+}) {
   return (
     <div className="wrapper">
-      <Header/>
+      <Header />
       <main>
-        <Filters 
-          search={search} 
-          setSearch={setSearch} 
+        <Filters
+          search={search}
+          setSearch={setSearch}
           toggleActive={toggleActive}
           setToggleActive={setToggleActive}
           toggleButtons={toggleButtons}
         />
-        <TableCoins 
-          coins={coins}  
+        <TableCoins
+          coins={coins}
           handleFavorites={handleFavorites}
           favorites={favorites}
         />
       </main>
     </div>
-  )
+  );
 }
 
 HomeTemplate.propTypes = {
@@ -42,7 +41,7 @@ HomeTemplate.propTypes = {
   setToggleActive: PropTypes.func.isRequired,
   toggleButtons: PropTypes.array.isRequired,
   handleFavorites: PropTypes.func.isRequired,
-  favorites: PropTypes.array.isRequired
-}
+  favorites: PropTypes.array.isRequired,
+};
 
-export default HomeTemplate
+export default HomeTemplate;
