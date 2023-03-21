@@ -25,7 +25,7 @@ export const coinsSlice = createSlice({
   reducers: {
     setFavorites: (state, { payload } ) => {
       const favorites = localStorage.getItem("favorites_coins");
-      let stateCoins = favorites.split(",")
+      let stateCoins = favorites ? favorites.split(",") : [];
       if(stateCoins.some(coin => coin === payload)){
         stateCoins = stateCoins.filter(coin => coin !== payload)
       }else{
