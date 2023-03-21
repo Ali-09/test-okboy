@@ -6,6 +6,12 @@
     justify-content: space-between;
     align-items: center;
 
+    button{
+        border-right: 1px solid rgb(174, 174, 174);
+        &:last-child{
+            border-right: none;
+        }
+    }
     @include media(sm) {
         gap: 0.4rem;
         flex-direction: column;

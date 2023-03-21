@@ -26,13 +26,12 @@
         padding: 5px 10px;
         vertical-align: bottom;
         text-transform: uppercase;
-      }
-
-      th:first-child {
-        border-top-left-radius: 5px;
-      }
-      th:last-child {
-        border-top-right-radius: 5px;
+        &:first-child {
+          border-top-left-radius: 5px;
+        }
+        &:last-child {
+          border-top-right-radius: 5px;
+        }
       }
     }
 
@@ -42,6 +41,14 @@
         padding: 5px 10px;
         vertical-align: top;
         font-weight: 300;
+
+        button{
+          height: auto;
+          display: flex;
+          background: transparent;
+          border: 0;
+          padding: 0;
+        }
 
         .table--coin-item {
           display: flex;
